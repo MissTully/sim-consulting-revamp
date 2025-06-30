@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Mail, Phone, Clock, Calendar, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -42,7 +41,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Call Us",
-      details: ["813-416-1641"],
+      details: ["813-337-6813"],
       action: "Call Now"
     }
   ];
