@@ -1,5 +1,5 @@
 
-import { Stethoscope, Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react';
+import { Stethoscope, Mail, Phone, Linkedin, Twitter, Facebook } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -55,13 +55,12 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-medical-teal" />
-                <span className="text-sm">+1 (555) 123-4567</span>
+                <span className="text-sm">813-416-1641</span>
               </div>
               <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-medical-teal mt-1" />
                 <div className="text-sm">
-                  <p>123 Medical Center Drive</p>
-                  <p>Healthcare District, HC 12345</p>
+                  <p>9909 Colonnade Dr.</p>
+                  <p>Tampa, FL 33647</p>
                 </div>
               </div>
             </div>

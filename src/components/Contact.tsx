@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Clock, Calendar } from 'lucide-react';
+import { Mail, Phone, Clock, Calendar, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -42,14 +42,8 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Call Us",
-      details: ["+1 (555) 123-4567", "+1 (555) 987-6543"],
+      details: ["813-416-1641"],
       action: "Call Now"
-    },
-    {
-      icon: MapPin,
-      title: "Visit Us",
-      details: ["123 Medical Center Drive", "Healthcare District, HC 12345"],
-      action: "Get Directions"
     }
   ];
 
@@ -64,7 +58,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {contactInfo.map((info, index) => (
             <Card key={index} className="text-center hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
               <CardHeader>
