@@ -51,10 +51,18 @@ src/
     NotFound.tsx
 ```
 
+## The Apex Mentor (live AI)
+
+The floating mentor chats with a real model. The browser POSTs the conversation
+to `api/mentor.ts` (a serverless function), which calls **Claude (`claude-opus-4-8`)**
+server-side so the API key never reaches the client. Set `ANTHROPIC_API_KEY` in
+your Vercel project (see `.env.example`) to enable it; without a key it falls
+back to scripted Breaching / Diving prompts so the experience never dead-ends.
+
 ## Roadmap
 
-- [ ] Wire the **Apex Mentor** to an LLM endpoint (function-calling) for live
-      Breaching / Diving prompts.
+- [x] Wire the **Apex Mentor** to a real model (server-side, with graceful fallback).
+- [ ] Stream mentor replies token-by-token for a snappier feel.
 - [ ] Add **Simulated Prospects** driven by hidden game-theory variables
       (BATNA, Promotion vs. Prevention).
 - [ ] Persist learner progress with **IndexedDB** for offline resilience.
