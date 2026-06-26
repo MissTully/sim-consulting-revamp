@@ -798,7 +798,7 @@ footer a.f-link:hover{color:var(--turq);}
       <input type="hidden" name="_captcha" value="false" />
       <!-- Autoresponder: confirms the 2-business-day pilot proposal to the prospect and shares the
            consulting scheduler link. Keep the scheduler URL in sync with CONSULT_URL in the script below. -->
-      <input type="hidden" name="_autoresponse" value="Thank you for your interest in bringing the Encountive Engine to your program. We have received your details and will send a pilot proposal tailored to your learners and goals within 2 business days. To talk it through sooner, book a consulting call here: https://calendly.com/encountive/consultation . Questions in the meantime? Just reply to this email or write to melissa@encountive.com." />
+      <input type="hidden" name="_autoresponse" value="Thank you for your interest in bringing the Encountive Engine to your program. We have received your details and will send a pilot proposal tailored to your learners and goals within 2 business days. To talk it through sooner, book a consulting call here: https://calendar.app.google/Rm2F8heE3YCNpWWE7 . Questions in the meantime? Just reply to this email or write to melissa@encountive.com." />
       <!-- Honeypot: bots fill this, humans never see it -->
       <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" />
       <div class="form-grid">
@@ -881,7 +881,7 @@ footer a.f-link:hover{color:var(--turq);}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
         <!-- Scheduler link is set from CONSULT_URL in the script (data-consult-link); href below is a no-JS fallback. -->
-        <a class="btn btn-ghost" data-consult-link href="https://calendly.com/encountive/consultation" target="_blank" rel="noopener">Book a consulting call</a>
+        <a class="btn btn-ghost" data-consult-link href="https://calendar.app.google/Rm2F8heE3YCNpWWE7" target="_blank" rel="noopener">Book a consulting call</a>
         <span class="form-note">Pilot proposal within 2 business days · No obligation · FERPA-aligned data handling</span>
       </div>
 
@@ -977,9 +977,9 @@ footer a.f-link:hover{color:var(--turq);}
 (function(){
   var ERROR_MSG = 'Sorry, something went wrong sending your answers. Please email melissa@encountive.com directly and we will follow up.';
 
-  /* Single source of truth for the consulting scheduler link.
-     TODO: replace with the real scheduler URL (Calendly / Cal.com / Google appointments). */
-  var CONSULT_URL = 'https://calendly.com/encountive/consultation';
+  /* Single source of truth for the consulting scheduler link (Google appointment schedule).
+     Update this value and the matching URL in the program form's _autoresponse to change it. */
+  var CONSULT_URL = 'https://calendar.app.google/Rm2F8heE3YCNpWWE7';
   document.querySelectorAll('[data-consult-link]').forEach(function(a){ a.setAttribute('href', CONSULT_URL); });
 
   document.querySelectorAll('form.form-card').forEach(function(form){
