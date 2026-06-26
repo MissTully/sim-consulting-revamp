@@ -278,6 +278,7 @@ header.nav{
   font-weight:500;
 }
 .form-success.show{display:block;}
+.form-success.error{background:rgba(239,68,68,.1); border-color:rgba(239,68,68,.4); color:#b91c1c;}
 
 /* ---------- Footer ---------- */
 footer{background:var(--char); color:rgba(255,255,255,.7); padding:60px 0 34px;}
@@ -681,7 +682,13 @@ footer a.f-link:hover{color:var(--turq);}
       <p class="lead" style="margin:16px auto 0;">A few questions is all we need to prepare a proposal tailored to your learners and goals.</p>
     </div>
 
-    <form class="form-card reveal" id="intakeForm" novalidate>
+    <form class="form-card reveal" id="intakeForm" action="https://formsubmit.co/melissa@encountive.com" method="POST" novalidate>
+      <!-- FormSubmit.co configuration -->
+      <input type="hidden" name="_subject" value="New Encountive intake submission" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <!-- Honeypot: bots fill this, humans never see it -->
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" />
       <div class="form-grid">
         <div class="field">
           <label for="name">Your name <span class="req">*</span></label>
@@ -765,7 +772,7 @@ footer a.f-link:hover{color:var(--turq);}
       </div>
 
       <div class="form-success" id="formSuccess" role="status" aria-live="polite">
-        Thank you. Your answers are in. A learning engineer will review your program and send a tailored proposal. <strong>[Demo form: submission is not yet connected to a backend.]</strong>
+        Thank you. Your answers are in. A learning engineer will review your program and send a tailored proposal.
       </div>
     </form>
   </div>
@@ -849,14 +856,25 @@ footer a.f-link:hover{color:var(--turq);}
   });
 })();
 
-/* ---- Intake form: client-side demo handling (no backend yet) ---- */
+/* ---- Intake form: submit to FormSubmit.co (emails melissa@encountive.com) ---- */
 (function(){
   var form = document.getElementById('intakeForm');
   var ok = document.getElementById('formSuccess');
   if(!form) return;
+  var ENDPOINT = 'https://formsubmit.co/ajax/melissa@encountive.com';
+  var SUCCESS_MSG = 'Thank you. Your answers are in. A learning engineer will review your program and send a tailored proposal.';
+  var ERROR_MSG = 'Sorry, something went wrong sending your answers. Please email melissa@encountive.com directly and we will follow up.';
+
+  function show(msg, isError){
+    ok.textContent = msg;
+    ok.classList.toggle('error', !!isError);
+    ok.classList.add('show');
+    ok.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+
   form.addEventListener('submit', function(ev){
     ev.preventDefault();
-    // Minimal required-field check for the demo
+    // Required-field check
     var required = form.querySelectorAll('[required]');
     var valid = true;
     required.forEach(function(f){
@@ -865,9 +883,32 @@ footer a.f-link:hover{color:var(--turq);}
       } else { f.style.borderColor = ''; }
     });
     if(!valid){ return; }
-    ok.classList.add('show');
-    ok.scrollIntoView({behavior:'smooth', block:'center'});
-    form.querySelector('button[type=submit]').textContent = 'Submitted';
+
+    var btn = form.querySelector('button[type=submit]');
+    var original = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Sending…';
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if(data && (data.success === 'true' || data.success === true)){
+        show(SUCCESS_MSG, false);
+        form.reset();
+        btn.textContent = 'Submitted';
+      } else {
+        // FormSubmit returns a message (e.g. activation required on first use)
+        throw new Error((data && data.message) ? data.message : 'Submission failed');
+      }
+    })
+    .catch(function(err){
+      btn.disabled = false; btn.textContent = original;
+      show(ERROR_MSG, true);
+      if(window.console) console.error('Intake submission error:', err && err.message);
+    });
   });
 })();
 </script>
