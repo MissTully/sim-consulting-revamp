@@ -353,6 +353,7 @@ footer a.f-link:hover{color:var(--turq);}
       <a class="link" href="#cycle">The improvement loop</a>
       <a class="link" href="#faculty">Practice &amp; debrief</a>
       <a class="link" href="#analytics">Your progress</a>
+      <a class="link" href="#programs">For programs</a>
       <a class="btn btn-primary nav-cta" href="#intake">Get started</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
@@ -682,7 +683,7 @@ footer a.f-link:hover{color:var(--turq);}
       <p class="lead" style="margin:16px auto 0;">Enter your name and email, and we will email you a link to register and log in to The Why Beneath, the Encountive Clinical Simulation experience. No program proposal, no obligation.</p>
     </div>
 
-    <form class="form-card reveal" id="intakeForm" action="https://formsubmit.co/el/zudoro" method="POST" novalidate>
+    <form class="form-card reveal" id="intakeForm" action="https://formsubmit.co/el/zudoro" method="POST" novalidate data-success-msg="Thank you. Check your inbox: we just emailed you a link to register and log in to The Why Beneath. If you do not see it within a few minutes, check spam, or write to melissa@encountive.com.">
       <!-- FormSubmit.co configuration -->
       <input type="hidden" name="_subject" value="New Encountive get-started signup" />
       <input type="hidden" name="_template" value="table" />
@@ -735,6 +736,162 @@ footer a.f-link:hover{color:var(--turq);}
   </div>
 </section>
 
+<!-- ===================== FOR PROGRAMS: ENCOUNTIVE ENGINE ===================== -->
+<section class="section" id="programs" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="head-block reveal">
+      <p class="eyebrow">For programs and institutions</p>
+      <h2>Bring the Encountive Engine to your whole program.</h2>
+      <p class="lead">Once you have felt it yourself, the same engine can run for everyone you teach. The <b>Encountive Engine</b> personalizes one-to-one tutoring for every nursing student, gives every educator the same deliberate practice you just tried, and turns each encounter into evidence your program can act on.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+        <h3>Adaptive tutoring at scale</h3>
+        <p>Put one-to-one, evidence-anchored tutoring in front of every student, not just the few you can reach in person. The +2 sigma lever, applied across a whole cohort.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Faculty development built in</h3>
+        <p>Give every educator the gold-standard debrief practice you experienced in The Why Beneath, so strong supervision becomes a shared standard, not a matter of luck.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h3>Evidence for accreditation</h3>
+        <p>Every encounter is scored against transparent rubrics and mapped to recognized standards, giving you cohort patterns, at-risk signals, and the documentation review expects.</p>
+      </div>
+    </div>
+
+    <div class="head-block reveal" style="margin:64px 0 46px;">
+      <p class="eyebrow">How an engagement works</p>
+      <h2>From first conversation to pilot proposal in days.</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="s-num">1</div>
+        <h3>Tell us about your program</h3>
+        <p>Share your learners, goals, and how you use simulation today in the short intake below. It takes about five minutes.</p>
+      </div>
+      <div class="step reveal">
+        <div class="s-num">2</div>
+        <h3>Book a consulting call</h3>
+        <p>Pick a time that works and meet with us to map the Encountive Engine to your context, scenarios, and outcomes.</p>
+      </div>
+      <div class="step reveal">
+        <div class="s-num">3</div>
+        <h3>Pilot proposal within 2 business days</h3>
+        <p>Based on your intake, you receive a written pilot proposal: recommended scenarios, a rollout plan, and outcomes you can measure.</p>
+      </div>
+    </div>
+
+    <div class="head-block reveal" style="text-align:center; margin:64px auto 0;">
+      <p class="eyebrow" style="text-align:center;">Request a pilot proposal</p>
+      <h2>Tell us about your program</h2>
+      <p class="lead" style="margin:16px auto 0;">A few questions is all we need to prepare a pilot proposal tailored to your learners and goals, within 2 business days. Prefer to talk first? Book a consulting call below.</p>
+    </div>
+
+    <form class="form-card reveal" id="programForm" action="https://formsubmit.co/el/zudoro" method="POST" novalidate data-success-msg="Thank you. Your program intake is in. We will follow up to confirm your consulting call and send a tailored pilot proposal within 2 business days. Check your inbox for a confirmation.">
+      <!-- FormSubmit.co configuration -->
+      <input type="hidden" name="_subject" value="New Encountive Engine program intake (pilot proposal request)" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <!-- Autoresponder: confirms the 2-business-day pilot proposal to the prospect and shares the
+           consulting scheduler link. Keep the scheduler URL in sync with CONSULT_URL in the script below. -->
+      <input type="hidden" name="_autoresponse" value="Thank you for your interest in bringing the Encountive Engine to your program. We have received your details and will send a pilot proposal tailored to your learners and goals within 2 business days. To talk it through sooner, book a consulting call here: https://calendly.com/encountive/consultation . Questions in the meantime? Just reply to this email or write to melissa@encountive.com." />
+      <!-- Honeypot: bots fill this, humans never see it -->
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" />
+      <div class="form-grid">
+        <div class="field">
+          <label for="p-name">Your name <span class="req">*</span></label>
+          <input id="p-name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="p-role">Your role <span class="req">*</span></label>
+          <select id="p-role" name="role" required>
+            <option value="" selected disabled>Select one</option>
+            <option>Nursing faculty / instructor</option>
+            <option>Simulation coordinator or director</option>
+            <option>Program director / dean</option>
+            <option>Clinical educator</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="p-institution">Institution or program name <span class="req">*</span></label>
+          <input id="p-institution" name="institution" type="text" autocomplete="organization" required />
+        </div>
+        <div class="field">
+          <label for="p-program">Program type</label>
+          <select id="p-program" name="program">
+            <option value="" selected disabled>Select one</option>
+            <option>Associate Degree in Nursing</option>
+            <option>Bachelor of Science in Nursing</option>
+            <option>Licensed Practical Nursing</option>
+            <option>Medical Assistant</option>
+            <option>Faculty / educator development</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="p-cohort">Approx. learners per cohort</label>
+          <input id="p-cohort" name="cohort" type="text" inputmode="numeric" placeholder="e.g., 40" />
+        </div>
+        <div class="field">
+          <label for="p-sim-use">Current use of simulation</label>
+          <select id="p-sim-use" name="sim-use">
+            <option value="" selected disabled>Select one</option>
+            <option>None yet, exploring</option>
+            <option>Occasional / ad hoc</option>
+            <option>Integrated into the curriculum</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="p-goal">What is the main outcome you are hoping to improve?</label>
+          <select id="p-goal" name="goal">
+            <option value="" selected disabled>Select one</option>
+            <option>Student communication competency</option>
+            <option>Faculty / educator development</option>
+            <option>Program evaluation &amp; accreditation evidence</option>
+            <option>Expanding simulation capacity without adding staff</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="p-challenge">What is the biggest challenge you are trying to solve?</label>
+          <textarea id="p-challenge" name="challenge" placeholder="A sentence or two is perfect."></textarea>
+        </div>
+        <div class="field">
+          <label for="p-email">Work email <span class="req">*</span></label>
+          <input id="p-email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="p-phone">Phone (optional)</label>
+          <input id="p-phone" name="phone" type="tel" autocomplete="tel" />
+        </div>
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" id="p-consent" name="consent" required />
+        <span>I would like Encountive to use these answers to prepare a tailored pilot proposal and to contact me about it. <span class="req">*</span></span>
+      </label>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Request my pilot proposal
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <!-- Scheduler link is set from CONSULT_URL in the script (data-consult-link); href below is a no-JS fallback. -->
+        <a class="btn btn-ghost" data-consult-link href="https://calendly.com/encountive/consultation" target="_blank" rel="noopener">Book a consulting call</a>
+        <span class="form-note">Pilot proposal within 2 business days · No obligation · FERPA-aligned data handling</span>
+      </div>
+
+      <div class="form-success" id="programSuccess" role="status" aria-live="polite">
+        Thank you. Your program intake is in. We will follow up to confirm your consulting call and send a tailored pilot proposal within 2 business days.
+      </div>
+    </form>
+  </div>
+</section>
+
 </main>
 
 <!-- ===================== FOOTER ===================== -->
@@ -751,6 +908,7 @@ footer a.f-link:hover{color:var(--turq);}
         <a class="f-link" href="#cycle">The improvement loop</a>
         <a class="f-link" href="#faculty">Practice &amp; debrief</a>
         <a class="f-link" href="#analytics">Your progress</a>
+        <a class="f-link" href="#programs">For programs</a>
       </div>
       <div>
         <h4>Contact</h4>
@@ -813,58 +971,68 @@ footer a.f-link:hover{color:var(--turq);}
   });
 })();
 
-/* ---- Intake form: submit to FormSubmit.co (emails melissa@encountive.com) ---- */
+/* ---- FormSubmit.co forms: submit via AJAX (all email melissa@encountive.com).
+   Handles every form.form-card on the page. Each form derives its own endpoint
+   from its action attribute and shows its own success message (data-success-msg). ---- */
 (function(){
-  var form = document.getElementById('intakeForm');
-  var ok = document.getElementById('formSuccess');
-  if(!form) return;
-  var ENDPOINT = 'https://formsubmit.co/ajax/el/zudoro';
-  var SUCCESS_MSG = 'Thank you. Check your inbox: we just emailed you a link to register and log in to The Why Beneath. If you do not see it within a few minutes, check spam, or write to melissa@encountive.com.';
   var ERROR_MSG = 'Sorry, something went wrong sending your answers. Please email melissa@encountive.com directly and we will follow up.';
 
-  function show(msg, isError){
-    ok.textContent = msg;
-    ok.classList.toggle('error', !!isError);
-    ok.classList.add('show');
-    ok.scrollIntoView({behavior:'smooth', block:'center'});
-  }
+  /* Single source of truth for the consulting scheduler link.
+     TODO: replace with the real scheduler URL (Calendly / Cal.com / Google appointments). */
+  var CONSULT_URL = 'https://calendly.com/encountive/consultation';
+  document.querySelectorAll('[data-consult-link]').forEach(function(a){ a.setAttribute('href', CONSULT_URL); });
 
-  form.addEventListener('submit', function(ev){
-    ev.preventDefault();
-    // Required-field check
-    var required = form.querySelectorAll('[required]');
-    var valid = true;
-    required.forEach(function(f){
-      if((f.type === 'checkbox' && !f.checked) || (f.type !== 'checkbox' && !f.value.trim())){
-        valid = false; f.style.borderColor = '#ef4444';
-      } else { f.style.borderColor = ''; }
-    });
-    if(!valid){ return; }
+  document.querySelectorAll('form.form-card').forEach(function(form){
+    var ok = form.querySelector('.form-success');
+    // Derive the AJAX endpoint from the form action (insert "ajax/" after the host).
+    var endpoint = form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+    var successMsg = form.getAttribute('data-success-msg') || 'Thank you. Your message is on its way.';
 
-    var btn = form.querySelector('button[type=submit]');
-    var original = btn.textContent;
-    btn.disabled = true; btn.textContent = 'Sending…';
+    function show(msg, isError){
+      if(!ok) return;
+      ok.textContent = msg;
+      ok.classList.toggle('error', !!isError);
+      ok.classList.add('show');
+      ok.scrollIntoView({behavior:'smooth', block:'center'});
+    }
 
-    fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: new FormData(form)
-    })
-    .then(function(r){ return r.json(); })
-    .then(function(data){
-      if(data && (data.success === 'true' || data.success === true)){
-        show(SUCCESS_MSG, false);
-        form.reset();
-        btn.textContent = 'Submitted';
-      } else {
-        // FormSubmit returns a message (e.g. activation required on first use)
-        throw new Error((data && data.message) ? data.message : 'Submission failed');
-      }
-    })
-    .catch(function(err){
-      btn.disabled = false; btn.textContent = original;
-      show(ERROR_MSG, true);
-      if(window.console) console.error('Intake submission error:', err && err.message);
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      // Required-field check
+      var required = form.querySelectorAll('[required]');
+      var valid = true;
+      required.forEach(function(f){
+        if((f.type === 'checkbox' && !f.checked) || (f.type !== 'checkbox' && !f.value.trim())){
+          valid = false; f.style.borderColor = '#ef4444';
+        } else { f.style.borderColor = ''; }
+      });
+      if(!valid){ return; }
+
+      var btn = form.querySelector('button[type=submit]');
+      var original = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Sending…';
+
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        if(data && (data.success === 'true' || data.success === true)){
+          show(successMsg, false);
+          form.reset();
+          btn.textContent = 'Submitted';
+        } else {
+          // FormSubmit returns a message (e.g. activation required on first use)
+          throw new Error((data && data.message) ? data.message : 'Submission failed');
+        }
+      })
+      .catch(function(err){
+        btn.disabled = false; btn.textContent = original;
+        show(ERROR_MSG, true);
+        if(window.console) console.error('Form submission error:', err && err.message);
+      });
     });
   });
 })();
