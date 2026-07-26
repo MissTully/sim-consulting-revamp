@@ -80,17 +80,19 @@ header.nav{
   background:rgba(245,248,251,.86); backdrop-filter:saturate(140%) blur(10px);
   border-bottom:1px solid var(--line);
 }
-.nav-inner{display:flex; align-items:center; justify-content:space-between; height:150px;}
-.brand{display:flex; align-items:center;}
+.nav-inner{display:flex; align-items:center; justify-content:space-between; height:108px;}
+.brand{display:flex; align-items:center; gap:13px; flex-shrink:0; margin-right:24px;}
 .brand img{
-  height:128px; width:auto; border-radius:14px;
-  background:#fff; padding:6px 10px;
-  box-shadow:0 8px 22px -10px rgba(27,48,80,.45), 0 0 0 1px rgba(27,48,80,.06);
-  transition:transform .2s ease, box-shadow .2s ease;
+  height:58px; width:auto;
+  transition:transform .2s ease;
 }
-.brand:hover img{transform:translateY(-2px) scale(1.02); box-shadow:0 14px 30px -12px rgba(27,48,80,.55), 0 0 0 1px rgba(42,167,160,.25);}
-.nav-links{display:flex; align-items:center; gap:28px;}
-.nav-links a.link{font-weight:500; color:var(--slate); font-size:.97rem;}
+.brand:hover img{transform:translateY(-2px) scale(1.04);}
+.brand-name{
+  font-weight:800; font-size:1.6rem; letter-spacing:-0.02em;
+  color:var(--ink); line-height:1;
+}
+.nav-links{display:flex; align-items:center; gap:26px;}
+.nav-links a.link{font-weight:500; color:var(--slate); font-size:.97rem; white-space:nowrap;}
 .nav-links a.link:hover{color:var(--navy);}
 .nav-cta{padding:10px 20px; font-size:.95rem;}
 .menu-btn{display:none; background:none; border:none; cursor:pointer; padding:6px;}
@@ -282,7 +284,9 @@ footer{background:var(--char); color:rgba(255,255,255,.7); padding:60px 0 34px;}
   padding:4px 9px; border-radius:6px; color:var(--turq);
   background:rgba(60,200,180,.12); border:1px solid rgba(60,200,180,.32);
 }
-footer .brand-foot img{height:104px; border-radius:14px; background:#fff; padding:8px 12px; box-shadow:0 8px 22px -12px rgba(0,0,0,.6);}
+footer .brand-foot .brand-lockup{display:flex; align-items:center; gap:12px;}
+footer .brand-foot img{height:60px;}
+footer .brand-foot .brand-name{color:#fff;}
 footer h4{color:#fff; font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; font-family:var(--mono); font-weight:600; margin:0 0 16px;}
 footer a.f-link{display:block; color:rgba(255,255,255,.7); margin-bottom:10px; font-size:.95rem;}
 footer a.f-link:hover{color:var(--turq);}
@@ -310,8 +314,9 @@ footer a.f-link:hover{color:var(--turq);}
   .section{padding:64px 0;}
   .nav-links{display:none;}
   .menu-btn{display:inline-flex;}
-  .nav-inner{height:108px;}
-  .brand img{height:88px; padding:5px 8px;}
+  .nav-inner{height:84px;}
+  .brand img{height:44px;}
+  .brand-name{font-size:1.3rem;}
   .nav-links.open{
     display:flex; flex-direction:column; align-items:flex-start; gap:16px;
     position:absolute; top:84px; left:0; right:0; background:#fff;
