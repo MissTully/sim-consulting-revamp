@@ -1,0 +1,14 @@
+{
+  "name": "Encountive",
+  "short_name": "Encountive",
+  "description": "Clinical simulation and adaptive tutoring for healthcare educators and their learners.",
+  "icons": [
+    { "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/assets/icons/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "theme_color": "#1B3A5C",
+  "background_color": "#F5F8FB",
+  "display": "browser",
+  "start_url": "/"
+}
