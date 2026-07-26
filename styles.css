@@ -253,6 +253,12 @@ header.nav{
 }
 .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--teal); outline:none;}
 .field textarea{resize:vertical; min-height:96px;}
+fieldset.field{border:none; padding:0; margin:0; min-width:0;}
+fieldset.field legend{font-weight:600; font-size:.9rem; color:var(--ink); padding:0; margin-bottom:7px;}
+fieldset.field.invalid legend{color:#ef4444;}
+.check-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px 18px;}
+.check{display:flex; gap:10px; align-items:flex-start; font-size:.93rem; color:var(--slate); cursor:pointer;}
+.check input{margin-top:4px; flex:0 0 auto; accent-color:var(--teal);}
 .consent{display:flex; gap:12px; align-items:flex-start; font-size:.88rem; color:var(--slate); margin-top:6px;}
 .consent input{margin-top:4px;}
 .form-actions{margin-top:24px; display:flex; flex-wrap:wrap; align-items:center; gap:16px;}
@@ -311,7 +317,7 @@ footer a.f-link:hover{color:var(--turq);}
     position:absolute; top:84px; left:0; right:0; background:#fff;
     border-bottom:1px solid var(--line); padding:20px 24px;
   }
-  .profiles, .form-grid{grid-template-columns:1fr;}
+  .profiles, .form-grid, .check-grid{grid-template-columns:1fr;}
   .foot-top{grid-template-columns:1fr;}
   .loop-arrow{transform:rotate(90deg); align-self:center;}
 }

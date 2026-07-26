@@ -65,6 +65,12 @@
           valid = false; f.style.borderColor = '#ef4444';
         } else { f.style.borderColor = ''; }
       });
+      // "Check at least one" groups (fieldsets marked data-require-one)
+      form.querySelectorAll('fieldset[data-require-one]').forEach(function(fs){
+        var any = fs.querySelector('input[type=checkbox]:checked');
+        fs.classList.toggle('invalid', !any);
+        if(!any){ valid = false; }
+      });
       if(!valid){ return; }
 
       var btn = form.querySelector('button[type=submit]');
