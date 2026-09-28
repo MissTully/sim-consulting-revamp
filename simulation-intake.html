@@ -32,7 +32,7 @@
       <a class="link" href="/">For educators</a>
       <a class="link" href="/#intake">Try it free</a>
       <a class="link" href="programs.html">For programs</a>
-      <a class="btn btn-primary nav-cta" href="#consult-form">Request a consult</a>
+      <a class="btn btn-primary nav-cta" data-consult-link href="https://calendar.app.google/4rcHz3JYTDYmnS6i9" target="_blank" rel="noopener noreferrer">Request a consult</a>
     </nav>
   </div>
 </header>
@@ -48,11 +48,11 @@
       <h2>Want to use simulation with your students, but not sure where to start? Let's talk.</h2>
       <p class="lead" style="margin-top:16px;">You teach CNAs, PCTs, MAs, LPNs, or RNs, and you know simulation would help them. Maybe you have never run one. Maybe you have no lab, no manikin, and no time. That is exactly where a consult helps. Answer a few questions below, and we will get on a call with you and map out simulation that fits your learners, your resources, and your comfort level.</p>
       <div class="hero-cta" style="margin-top:30px;">
-        <a href="#consult-form" class="btn btn-primary">Request my free consult
+        <a data-consult-link href="https://calendar.app.google/4rcHz3JYTDYmnS6i9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Request my free consult
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
-      <p class="cta-note"><b>Takes about five minutes</b> · We reply within 2 business days to schedule your call</p>
+      <p class="cta-note"><b>Book a time on the calendar</b> · Free · No obligation</p>
     </div>
   </div>
 </section>
@@ -140,7 +140,7 @@
       <input type="hidden" name="_captcha" value="false" />
       <!-- Autoresponder: confirms the consult request and shares the scheduler link.
            Keep the scheduler URL in sync with CONSULT_URL in app.js. -->
-      <input type="hidden" name="_autoresponse" value="Thank you for requesting a simulation consult with Encountive. We have your answers and will email you within 2 business days to schedule your free consult. Want to grab a time right now? Book directly here: https://calendar.app.google/Rm2F8heE3YCNpWWE7 . Questions in the meantime? Just reply to this email or write to melissa@encountive.com." />
+      <input type="hidden" name="_autoresponse" value="Thank you for requesting a simulation consult with Encountive. We have your answers and will email you within 2 business days to schedule your free consult. Want to grab a time right now? Book directly here: https://calendar.app.google/4rcHz3JYTDYmnS6i9 . Questions in the meantime? Just reply to this email or write to melissa@encountive.com." />
       <!-- Honeypot: bots fill this, humans never see it -->
       <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" />
 
@@ -276,9 +276,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
         <!-- Scheduler link is set from CONSULT_URL in app.js (data-consult-link); href below is a no-JS fallback. -->
-        <a class="btn btn-ghost" data-consult-link href="https://calendar.app.google/Rm2F8heE3YCNpWWE7" target="_blank" rel="noopener">Book my consult time now</a>
+        <a class="btn btn-ghost" data-consult-link href="https://calendar.app.google/4rcHz3JYTDYmnS6i9" target="_blank" rel="noopener noreferrer">Book my consult time now</a>
         <span class="form-note">Free consult · No obligation · We reply within 2 business days</span>
       </div>
+      <p class="form-note form-fallback">If the form does not send, email <a href="mailto:melissa@encountive.com">melissa@encountive.com</a>.</p>
 
       <div class="form-success" id="simConsultSuccess" role="status" aria-live="polite">
         Thank you. Your consult request is in. We will email you within 2 business days to schedule your free simulation consult.
@@ -301,11 +302,11 @@
         <a class="f-link" href="/#idea">How it works</a>
         <a class="f-link" href="/#intake">Try it free</a>
         <a class="f-link" href="programs.html">For programs</a>
-        <a class="f-link" href="#start">Request a sim consult</a>
+        <a class="f-link" data-consult-link href="https://calendar.app.google/4rcHz3JYTDYmnS6i9" target="_blank" rel="noopener noreferrer">Request a sim consult</a>
       </div>
       <div>
         <h4>Contact</h4>
-        <a class="f-link" href="#consult-form">Request a consult</a>
+        <a class="f-link" data-consult-link href="https://calendar.app.google/4rcHz3JYTDYmnS6i9" target="_blank" rel="noopener noreferrer">Request a consult</a>
         <a class="f-link" href="mailto:melissa@encountive.com">melissa@encountive.com</a>
       </div>
       <div class="foot-compliance">

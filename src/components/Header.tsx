@@ -39,8 +39,8 @@ const Header = () => {
                 {item.name}
               </a>
             ))}
-            <Button className="medical-gradient text-white hover:opacity-90 transition-opacity">
-              Get Started
+            <Button asChild className="medical-gradient text-white hover:opacity-90 transition-opacity">
+              <a href="https://calendar.app.google/4rcHz3JYTDYmnS6i9" target="_blank" rel="noopener noreferrer">Get Started</a>
             </Button>
           </nav>
 
@@ -69,8 +69,8 @@ const Header = () => {
                   {item.name}
                 </a>
               ))}
-              <Button className="medical-gradient text-white w-fit">
-                Get Started
+              <Button asChild className="medical-gradient text-white w-fit">
+                <a href="https://calendar.app.google/4rcHz3JYTDYmnS6i9" target="_blank" rel="noopener noreferrer">Get Started</a>
               </Button>
             </nav>
           </div>

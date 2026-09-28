@@ -30,33 +30,65 @@
   });
 })();
 
-/* ---- FormSubmit.co forms: submit via AJAX (all email melissa@encountive.com).
-   Handles every form.form-card on the page. Each form derives its own endpoint
-   from its action attribute and shows its own success message (data-success-msg). ---- */
+/* ---- FormSubmit.co forms (all email melissa@encountive.com).
+   Handles every form.form-card on the page. Each form posts to its action
+   (https://formsubmit.co/el/zudoro, the activated alias for that inbox) and
+   shows its own success message (data-success-msg).
+   A cross-origin fetch to FormSubmit's /ajax/ endpoint does not deliver:
+   Cloudflare answers it without an Access-Control-Allow-Origin header, so the
+   browser throws "Failed to fetch" and the submission never arrives. A normal
+   form POST navigates to FormSubmit, which can complete the check and deliver
+   the email. ---- */
 (function(){
-  var ERROR_MSG = 'Sorry, something went wrong sending your answers. Please email melissa@encountive.com directly and we will follow up.';
+  var CONTACT_EMAIL = 'melissa@encountive.com';
+  var ERROR_BEFORE = 'Sorry, something went wrong sending your answers. Email ';
+  var ERROR_AFTER = ' directly and we will follow up.';
 
-  /* Single source of truth for the consulting scheduler link (Google appointment schedule).
-     Update this value and the matching URL in the program form's _autoresponse to change it. */
-  var CONSULT_URL = 'https://calendar.app.google/Rm2F8heE3YCNpWWE7';
-  document.querySelectorAll('[data-consult-link]').forEach(function(a){ a.setAttribute('href', CONSULT_URL); });
+  /* Single source of truth for Melissa's Google Calendar booking page.
+     HTML hrefs and form autoresponse text use the same URL as a no-JS fallback.
+     This script rewrites both so a future change only needs this constant. */
+  var CONSULT_URL = 'https://calendar.app.google/4rcHz3JYTDYmnS6i9';
+  document.querySelectorAll('[data-consult-link]').forEach(function(a){
+    a.setAttribute('href', CONSULT_URL);
+    a.setAttribute('target', '_blank');
+    a.setAttribute('rel', 'noopener noreferrer');
+  });
+  document.querySelectorAll('input[name="_autoresponse"]').forEach(function(input){
+    input.value = input.value.replace(/https:\/\/calendar\.app\.google\/[A-Za-z0-9_-]+/g, CONSULT_URL);
+  });
+
+  var sentId = '';
+  try { sentId = new URLSearchParams(window.location.search).get('sent') || ''; } catch (e) { sentId = ''; }
 
   document.querySelectorAll('form.form-card').forEach(function(form){
     var ok = form.querySelector('.form-success');
-    // Derive the AJAX endpoint from the form action (insert "ajax/" after the host).
-    var endpoint = form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
     var successMsg = form.getAttribute('data-success-msg') || 'Thank you. Your message is on its way.';
+
+    if(sentId && form.id === sentId && ok){
+      ok.textContent = successMsg;
+      ok.classList.remove('error');
+      ok.classList.add('show');
+    }
 
     function show(msg, isError){
       if(!ok) return;
-      ok.textContent = msg;
+      ok.textContent = '';
+      if(isError){
+        ok.appendChild(document.createTextNode(ERROR_BEFORE));
+        var mail = document.createElement('a');
+        mail.href = 'mailto:' + CONTACT_EMAIL;
+        mail.textContent = CONTACT_EMAIL;
+        ok.appendChild(mail);
+        ok.appendChild(document.createTextNode(ERROR_AFTER));
+      } else {
+        ok.textContent = msg;
+      }
       ok.classList.toggle('error', !!isError);
       ok.classList.add('show');
       ok.scrollIntoView({behavior:'smooth', block:'center'});
     }
 
     form.addEventListener('submit', function(ev){
-      ev.preventDefault();
       // Required-field check
       var required = form.querySelectorAll('[required]');
       var valid = true;
@@ -71,33 +103,31 @@
         fs.classList.toggle('invalid', !any);
         if(!any){ valid = false; }
       });
-      if(!valid){ return; }
+      if(!valid){ ev.preventDefault(); return; }
+
+      // Let the browser POST the form. Point FormSubmit back here afterward.
+      var next = form.querySelector('input[name="_next"]');
+      if(!next){
+        next = document.createElement('input');
+        next.type = 'hidden';
+        next.name = '_next';
+        form.appendChild(next);
+      }
+      var back = new URL(window.location.href);
+      back.searchParams.set('sent', form.id || 'form');
+      var section = form.closest('section');
+      if(section && section.id) back.hash = section.id;
+      next.value = back.toString();
 
       var btn = form.querySelector('button[type=submit]');
-      var original = btn.textContent;
-      btn.disabled = true; btn.textContent = 'Sending…';
+      var original = btn ? btn.textContent : '';
+      if(btn){ btn.disabled = true; btn.textContent = 'Sending…'; }
 
-      fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form)
-      })
-      .then(function(r){ return r.json(); })
-      .then(function(data){
-        if(data && (data.success === 'true' || data.success === true)){
-          show(successMsg, false);
-          form.reset();
-          btn.textContent = 'Submitted';
-        } else {
-          // FormSubmit returns a message (e.g. activation required on first use)
-          throw new Error((data && data.message) ? data.message : 'Submission failed');
-        }
-      })
-      .catch(function(err){
-        btn.disabled = false; btn.textContent = original;
-        show(ERROR_MSG, true);
-        if(window.console) console.error('Form submission error:', err && err.message);
-      });
+      // If the navigation never leaves the page, show the mailto fallback.
+      window.setTimeout(function(){
+        if(btn){ btn.disabled = false; btn.textContent = original; }
+        show('', true);
+      }, 12000);
     });
   });
 })();
