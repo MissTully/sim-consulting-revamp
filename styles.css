@@ -272,6 +272,9 @@ fieldset.field.invalid legend{color:#ef4444;}
 }
 .form-success.show{display:block;}
 .form-success.error{background:rgba(239,68,68,.1); border-color:rgba(239,68,68,.4); color:#b91c1c;}
+.form-success a{color:inherit; font-weight:700; text-decoration:underline;}
+.form-fallback{margin-top:14px;}
+.form-fallback a{color:var(--teal); font-weight:600;}
 
 /* ---------- Footer ---------- */
 footer{background:var(--char); color:rgba(255,255,255,.7); padding:60px 0 34px;}

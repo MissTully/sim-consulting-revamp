@@ -31,7 +31,7 @@
     <nav class="nav-links" aria-label="Primary">
       <a class="link" href="/">For educators</a>
       <a class="link" href="/#intake">Try it free</a>
-      <a class="btn btn-primary nav-cta" href="simulation-intake.html">Request a consult</a>
+      <a class="btn btn-primary nav-cta" data-consult-link href="https://calendar.app.google/4rcHz3JYTDYmnS6i9" target="_blank" rel="noopener noreferrer">Request a consult</a>
     </nav>
   </div>
 </header>
@@ -100,7 +100,7 @@
       <input type="hidden" name="_captcha" value="false" />
       <!-- Autoresponder: confirms the 2-business-day pilot proposal to the prospect and shares the
            consulting scheduler link. Keep the scheduler URL in sync with CONSULT_URL in the script below. -->
-      <input type="hidden" name="_autoresponse" value="Thank you for your interest in bringing the Encountive Engine to your program. We have received your details and will send a pilot proposal tailored to your learners and goals within 2 business days. To talk it through sooner, book a consulting call here: https://calendar.app.google/Rm2F8heE3YCNpWWE7 . Questions in the meantime? Just reply to this email or write to melissa@encountive.com." />
+      <input type="hidden" name="_autoresponse" value="Thank you for your interest in bringing the Encountive Engine to your program. We have received your details and will send a pilot proposal tailored to your learners and goals within 2 business days. To talk it through sooner, book a consulting call here: https://calendar.app.google/4rcHz3JYTDYmnS6i9 . Questions in the meantime? Just reply to this email or write to melissa@encountive.com." />
       <!-- Honeypot: bots fill this, humans never see it -->
       <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" />
       <div class="form-grid">
@@ -183,9 +183,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
         <!-- Scheduler link is set from CONSULT_URL in the script (data-consult-link); href below is a no-JS fallback. -->
-        <a class="btn btn-ghost" data-consult-link href="https://calendar.app.google/Rm2F8heE3YCNpWWE7" target="_blank" rel="noopener">Book a consulting call</a>
+        <a class="btn btn-ghost" data-consult-link href="https://calendar.app.google/4rcHz3JYTDYmnS6i9" target="_blank" rel="noopener noreferrer">Book a consulting call</a>
         <span class="form-note">Pilot proposal within 2 business days · No obligation · FERPA-aligned data handling</span>
       </div>
+      <p class="form-note form-fallback">If the form does not send, email <a href="mailto:melissa@encountive.com">melissa@encountive.com</a>.</p>
 
       <div class="form-success" id="programSuccess" role="status" aria-live="polite">
         Thank you. Your program intake is in. We will follow up to confirm your consulting call and send a tailored pilot proposal within 2 business days.
@@ -208,11 +209,11 @@
         <a class="f-link" href="/#idea">How it works</a>
         <a class="f-link" href="/#intake">Try it free</a>
         <a class="f-link" href="#programs">For programs</a>
-        <a class="f-link" href="simulation-intake.html">Request a sim consult</a>
+        <a class="f-link" data-consult-link href="https://calendar.app.google/4rcHz3JYTDYmnS6i9" target="_blank" rel="noopener noreferrer">Request a sim consult</a>
       </div>
       <div>
         <h4>Contact</h4>
-        <a class="f-link" href="simulation-intake.html">Request a consult</a>
+        <a class="f-link" data-consult-link href="https://calendar.app.google/4rcHz3JYTDYmnS6i9" target="_blank" rel="noopener noreferrer">Request a consult</a>
         <a class="f-link" href="mailto:melissa@encountive.com">melissa@encountive.com</a>
       </div>
       <div class="foot-compliance">

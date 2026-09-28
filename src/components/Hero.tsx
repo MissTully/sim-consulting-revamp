@@ -19,9 +19,11 @@ const Hero = () => {
               and improve patient outcomes through evidence-based simulation solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button size="lg" className="medical-gradient text-white hover:opacity-90 transition-opacity">
-                Start Your Project
-                <ArrowRight className="ml-2 w-5 h-5" />
+              <Button asChild size="lg" className="medical-gradient text-white hover:opacity-90 transition-opacity">
+                <a href="https://calendar.app.google/4rcHz3JYTDYmnS6i9" target="_blank" rel="noopener noreferrer">
+                  Start Your Project
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </a>
               </Button>
               <Button size="lg" variant="outline" className="border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white">
                 Learn More

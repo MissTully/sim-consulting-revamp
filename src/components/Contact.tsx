@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Mail, Phone, Clock, Calendar, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
+
+const CONTACT_EMAIL = 'melissa@encountive.com';
+const BOOKING_URL = 'https://calendar.app.google/4rcHz3JYTDYmnS6i9';
+const FORM_ACTION = 'https://formsubmit.co/el/zudoro';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,15 +17,33 @@ const Contact = () => {
     organization: '',
     message: ''
   });
+  const [sent, setSent] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message Sent Successfully!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    setFormData({ name: '', email: '', organization: '', message: '' });
+  useEffect(() => {
+    const sentId = new URLSearchParams(window.location.search).get('sent');
+    if (sentId === 'contact') {
+      setSent(true);
+      toast({
+        title: 'Message sent',
+        description: 'We will reply to the email you provided.',
+      });
+    }
+  }, [toast]);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const form = e.currentTarget;
+    if (!form.checkValidity()) {
+      e.preventDefault();
+      return;
+    }
+    const next = form.querySelector('input[name="_next"]') as HTMLInputElement | null;
+    if (next) {
+      const back = new URL(window.location.href);
+      back.searchParams.set('sent', 'contact');
+      back.hash = 'contact';
+      next.value = back.toString();
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -35,14 +57,16 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: ["info@medicalsimulationconsulting.com", "support@medicalsimulationconsulting.com"],
-      action: "Send Email"
+      details: [CONTACT_EMAIL],
+      action: "Send Email",
+      href: `mailto:${CONTACT_EMAIL}`
     },
     {
       icon: Phone,
       title: "Call Us",
       details: ["813-337-6813"],
-      action: "Call Now"
+      action: "Call Now",
+      href: "tel:813-337-6813"
     }
   ];
 
@@ -72,8 +96,8 @@ const Contact = () => {
                     <p key={detailIndex} className="text-medical-gray">{detail}</p>
                   ))}
                 </div>
-                <Button variant="outline" className="border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white">
-                  {info.action}
+                <Button asChild variant="outline" className="border-medical-blue text-medical-blue hover:bg-medical-blue hover:text-white">
+                  <a href={info.href}>{info.action}</a>
                 </Button>
               </CardContent>
             </Card>
@@ -86,7 +110,12 @@ const Contact = () => {
               <CardTitle className="text-2xl text-medical-navy">Send Us a Message</CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form action={FORM_ACTION} method="POST" onSubmit={handleSubmit} className="space-y-6">
+                <input type="hidden" name="_subject" value="New message from the Encountive consulting site" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value="" />
+                <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }} />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-medical-navy mb-2">
@@ -150,6 +179,13 @@ const Contact = () => {
                   Send Message
                   <Send className="ml-2 w-5 h-5" />
                 </Button>
+                {sent && (
+                  <p className="text-sm text-medical-navy text-center">Message sent. We will reply to the email you provided.</p>
+                )}
+                <p className="text-sm text-medical-gray text-center">
+                  If this form does not send, email{' '}
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-medical-blue underline">{CONTACT_EMAIL}</a>.
+                </p>
               </form>
             </CardContent>
           </Card>
@@ -194,8 +230,8 @@ const Contact = () => {
                 <p className="text-medical-gray mb-6">
                   Book a free 30-minute consultation to discuss your medical simulation needs.
                 </p>
-                <Button className="w-full medical-gradient text-white hover:opacity-90">
-                  Book Free Consultation
+                <Button asChild className="w-full medical-gradient text-white hover:opacity-90">
+                  <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Book Free Consultation</a>
                 </Button>
               </CardContent>
             </Card>
